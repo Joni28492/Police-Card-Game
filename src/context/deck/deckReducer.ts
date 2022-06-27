@@ -1,8 +1,9 @@
+import { ICard } from '../../interfaces';
 import { DeckState } from './DeckProvider';
 
 type DeckActionType =
     | {type:'[Deck]- DrawCard'} 
-    | {type:'[Deck]- PutCardOnTop'} 
+    | {type:'[Deck]- PutCardOnTop', payload: ICard} 
 
 export const deckReducer =(state:DeckState, action: DeckActionType):DeckState=>{
 
@@ -11,14 +12,12 @@ export const deckReducer =(state:DeckState, action: DeckActionType):DeckState=>{
         return {
             ...state,
             hand: [...state.hand, state.deck[0]],
-            
-            //TODO
-            deck: [...state.deck.splice(0,1)]//! eliminar carta, comprobar 
-            
+            deck: state.deck.slice(1)
         }
     case '[Deck]- PutCardOnTop':
         return {
             ...state,
+            //TODO
             
         }
 

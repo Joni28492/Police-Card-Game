@@ -1,7 +1,12 @@
 import { ITitle, IDescription, IImage, ICard, IButton } from '../interfaces/index';
 import logo from '../favicon.svg'
+import { useResponsiveWidth } from '../hooks/useResponsiveWidth';
 
 export const Card = ({src, title, desc, background, style}:ICard) => {
+
+  const {width} =  useResponsiveWidth()
+  //1070 
+  
   return (
     <div
         style={{

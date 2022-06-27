@@ -9,7 +9,7 @@ export interface IImage extends IStyles {src:string}
 export interface IButton extends IStyles {label: string,  background?: string,}
 
 export interface ICard extends IStyles{
-    id?:number;
+    id:number;
     background?: Colors;
     title:string;
     desc:string;

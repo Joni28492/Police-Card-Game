@@ -1,38 +1,19 @@
-
-
-import { useContext } from 'react';
-import { Card } from './components'
-import { DeckContext } from './context/deck';
-
+import { Tablero, Mano } from './components/UI';
 import './App.css'
-
-
+import { useContext } from 'react';
+import { TableContext } from './context/table';
+import { ICard } from './interfaces/index';
 
 function App() {
-
-  const {hand, deck} = useContext(DeckContext)
+  //Todo configurar tablero
+  // const {card} = useContext(TableContext)
 
   return (
 
         <div className="App">
-        
-          
-            <div style={{ display:'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
-              {
-                hand.map(({title, desc, src, background})=>(
-                    <Card 
-                          key={title}
-                          title={title} 
-                          desc={desc} 
-                          src={src} 
-                          background={background}
-                          style={{margin:'15px'}} 
-                    />
-                ))
-              }
-              
-            </div>
-        
+          {/* <Tablero stars={0} card={ { card } as unknown as ICard }/> */}
+          <Tablero stars={0}  />
+          <Mano />
         </div>
 
   )

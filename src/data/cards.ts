@@ -6,6 +6,12 @@ const noImage:string = 'https://farm5.staticflickr.com/4363/36346283311_74018f6e
 
 export const cards:ICard[] = [
     {
+        id:0,
+        src: noImage,
+        title:'',
+        desc: ''
+    },
+    {
         id:1,
         src: 'https://www.normaluz.com/24735-large_default/senal-vial-bolsa-rotonda-700x700mm.jpg',
         title:'Rotonda',
