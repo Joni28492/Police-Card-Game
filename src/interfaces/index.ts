@@ -6,7 +6,7 @@ export interface IStyles {
 export interface ITitle extends IStyles {title:string}
 export interface IDescription extends IStyles{desc:string}
 export interface IImage extends IStyles {src:string}
-export interface IButton extends IStyles {label: string,  background?: string,}
+export interface IButton extends IStyles {label: string,  background?: string }
 
 export interface ICard extends IStyles{
     id:number;

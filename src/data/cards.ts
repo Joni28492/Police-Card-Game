@@ -103,7 +103,7 @@ export const cards:ICard[] = [
         id:15,
         src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Javier_Moscoso_recibe_la_Medalla_de_Oro_al_M%C3%A9rito_en_el_Trabajo.jpg/220px-Javier_Moscoso_recibe_la_Medalla_de_Oro_al_M%C3%A9rito_en_el_Trabajo.jpg',
         title:'Moscosos',
-        desc: ''
+        desc: 'Libras la pregunta'
     },
     {
         id:16,

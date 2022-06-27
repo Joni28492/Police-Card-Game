@@ -1,11 +1,14 @@
 import { ITitle, IDescription, IImage, ICard, IButton } from '../interfaces/index';
 import logo from '../favicon.svg'
-import { useResponsiveWidth } from '../hooks/useResponsiveWidth';
+import { useContext } from 'react';
+import { DeckContext } from '../context/deck/DeckContext';
 
-export const Card = ({src, title, desc, background, style}:ICard) => {
 
-  const {width} =  useResponsiveWidth()
-  //1070 
+
+export const Card = (card:ICard) => {
+  const  {src, title, desc, background, id,style} = card;
+  const { useCard, putOnDeck, discardCard } = useContext(DeckContext)
+
   
   return (
     <div
@@ -32,8 +35,16 @@ export const Card = ({src, title, desc, background, style}:ICard) => {
           alignItems: 'flex-end'
         }}>
 
-          <Button label='Usar' />
-          <Button label='Descartar' background='darkred' />
+          
+          <div onClick={() => useCard(card)}>
+            <Button label='Usar' />
+          </div>
+          <div onClick={() => discardCard(card)}>
+            <Button label='Descartar' background='darkred' />
+          </div>
+          <div onClick={()=>putOnDeck(card)}>
+            <Button label='Al Deck' background='goldenrod' />
+          </div>
         </div>
     
     
@@ -102,7 +113,6 @@ export const Button = ({label, background,style, className}:IButton) => {
        className={className}
         style={{
           backgroundColor:(background)?background:'green',
-          // backgroundColor:'green',
           color: 'lightgray',
           borderRadius: '6px',
           border: '1px solid transparent',

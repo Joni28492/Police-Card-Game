@@ -16,7 +16,7 @@ import { ICard } from '../../interfaces';
 
     const Deck_INITIAL_STATE:DeckState = {
         deck: cards.slice(3),
-        //!Ojo con la referencia del arr, solventamos con el slice
+        //Ojo con la referencia del arr, solventamos con el slice
         hand: cards.sort(()=>{return Math.random() - 0.5}).slice().splice(0,3),
     }
 
@@ -27,17 +27,38 @@ import { ICard } from '../../interfaces';
         const [state, dispatch] = useReducer(deckReducer, Deck_INITIAL_STATE)
 
         const drawCard = () =>{
-            dispatch({type:'[Deck]- DrawCard'})
+            if(state.deck.length !== 0)
+                dispatch({type:'[Deck]- DrawCard'})
+            else{
+                console.log('No quedan cartas en el deck');
+            }
         }
+
+        // al usar quitarla de la mano
+        const useCard = (cardUsed:ICard) =>{
+            dispatch({type:'[Deck]- UseCard', payload: cardUsed  })
+        }
+        const putOnDeck = (cardUsed:ICard) =>{
+            dispatch({type:'[Deck]- PutCardOnTop', payload: cardUsed  })
+        }
+        const discardCard = (cardUsed:ICard) =>{
+            dispatch({type:'[Deck]- DisCard', payload: cardUsed  })
+        }
+
+        
 
 
         return ( 
             <DeckContext.Provider value={{
                 deck: state.deck,
                 hand: state.hand,
+                discards: state.discards,
 
                 //mehotds
                 drawCard,
+                useCard,
+                putOnDeck,
+                discardCard,
                 }}>
                 {children}
             </DeckContext.Provider>
