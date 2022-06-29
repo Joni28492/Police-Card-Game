@@ -6,7 +6,7 @@ import { DeckContext } from '../context/deck/DeckContext';
 
 
 export const Card = (card:ICard) => {
-  const  {src, title, desc, background, id,style} = card;
+  const  {src, title, desc, background, id,uid, style} = card;
   const { useCard, putOnDeck, discardCard } = useContext(DeckContext)
 
   

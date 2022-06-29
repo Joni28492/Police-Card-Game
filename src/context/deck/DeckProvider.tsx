@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useReducer } from 'react';
 import { DeckContext, deckReducer } from './';
 import { cards } from '../../data/cards';
 import { ICard } from '../../interfaces';
-
+import {v4 as uuid} from 'uuid'
 
 
     export interface DeckState {
@@ -13,11 +13,17 @@ import { ICard } from '../../interfaces';
     }
 
     
-
+    //!REVISAR Deck
+    // const Deck_INITIAL_STATE:DeckState = {
+    //     deck: cards.sort(()=>{return Math.random() - 0.5}).slice(3),
+    //     //Ojo con la referencia del arr, solventamos con el slice
+    //     hand: cards.sort(()=>{return Math.random() - 0.5}).slice().splice(0,3),
+    // }
+    //?UID Version
     const Deck_INITIAL_STATE:DeckState = {
-        deck: cards.slice(3),
+        deck: cards.sort(()=>{return Math.random() - 0.5}),
         //Ojo con la referencia del arr, solventamos con el slice
-        hand: cards.sort(()=>{return Math.random() - 0.5}).slice().splice(0,3),
+        hand: cards.slice().splice(0,3)
     }
 
     interface Props {}

@@ -1,12 +1,8 @@
 import { Tablero, Mano } from './components/UI';
 import './App.css'
-import { useContext } from 'react';
-import { TableContext } from './context/table';
-import { ICard } from './interfaces/index';
+
 
 function App() {
-  //Todo configurar tablero
-  // const {card} = useContext(TableContext)
 
   return (
 

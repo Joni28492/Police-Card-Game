@@ -7,12 +7,12 @@ export const MiniCard = (cardOnHand:ICard) => {
 
 
 
-    const {id, title,  src, background} = cardOnHand;
+    const {id, title,  src, background, uid} = cardOnHand;
     const {setCardOnTable} = useContext(TableContext)
 
     const useCardOnTable = () =>{
         setCardOnTable(cardOnHand);
-        console.log("carta cambiada " + id);
+        // console.log("carta cambiada " + id);
     }
 
   return (

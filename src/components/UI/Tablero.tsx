@@ -45,12 +45,13 @@ const {card} = useContext(TableContext)
             {
               (card) &&
                 <Card 
-                    key={card!.id}
-                    id={card!.id}
-                    title={card!.title} 
-                    desc={card!.desc} 
-                    src={card!.src} 
-                    background={card!.background}
+                    key={card.id}
+                    uid={card.uid}
+                    id={card.id}
+                    title={card.title} 
+                    desc={card.desc} 
+                    src={card.src} 
+                    background={card.background}
                     style={{margin:'15px'}} 
                 />
             }
