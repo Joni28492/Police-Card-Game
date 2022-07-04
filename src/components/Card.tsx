@@ -1,13 +1,12 @@
 import { ITitle, IDescription, IImage, ICard, IButton } from '../interfaces/index';
 import logo from '../favicon.svg'
-import { useContext } from 'react';
-import { DeckContext } from '../context/deck/DeckContext';
+
 
 
 
 export const Card = (card:ICard) => {
   const  {src, title, desc, background, id,uid, style} = card;
-  const { useCard, putOnDeck, discardCard } = useContext(DeckContext)
+
 
   
   return (
@@ -36,13 +35,16 @@ export const Card = (card:ICard) => {
         }}>
 
           
-          <div onClick={() => useCard(card)}>
+     
+          <div onClick={() => console.log("Usar Carta, y la pila de descartes")}>
             <Button label='Usar' />
           </div>
-          <div onClick={() => discardCard(card)}>
+    
+          <div onClick={() => console.log("DescartarCarta y a la pila de descartes, eliminar de tablero")}>
             <Button label='Descartar' background='darkred' />
           </div>
-          <div onClick={()=>putOnDeck(card)}>
+      
+          <div onClick={()=>console.log("Poner carta en el deck y eliminar del tablero")}>
             <Button label='Al Deck' background='goldenrod' />
           </div>
         </div>
@@ -114,12 +116,12 @@ export const Button = ({label, background,style, className}:IButton) => {
         style={{
           backgroundColor:(background)?background:'green',
           color: 'lightgray',
-          borderRadius: '6px',
+          borderRadius: '16px',
           border: '1px solid transparent',
           marginLeft:'4px',
           marginRight:'4px',
-          fontSize: '24px',
-          height: '40px',
+          fontSize: '18px',
+          height: '26px',
           ...style
         }}
        >{label}</button>

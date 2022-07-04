@@ -48,7 +48,7 @@ export const deckReducer =(state:DeckState, action: DeckActionType):DeckState=>{
         case '[Deck]- DrawCard':
             return {
                 ...state,
-                hand: [...state.hand, state.deck[0] ],
+                hand: [...state.hand, state.deck[0]], 
                 deck: deleteFirstAndReturnArr(state.deck)
             }
       
@@ -59,7 +59,7 @@ export const deckReducer =(state:DeckState, action: DeckActionType):DeckState=>{
                 hand: deleteElementCard(action.payload, state.hand),
                 deck: addedFirstPlace(state.deck, action.payload)   
             }
-            case '[Deck]- UseCard':
+        case '[Deck]- UseCard':
                 return {
                 ...state,
           

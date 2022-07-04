@@ -3,6 +3,7 @@ import { TableState } from './TableProvider';
 
 type TableActionType =
     | {type:'[Table]- PutCardOnTable', payload: ICard}
+    | {type:'[Table]- DeleteCardFromTable'}
 
 export const tableReducer =(state:TableState, action: TableActionType):TableState=>{
 
@@ -11,6 +12,10 @@ export const tableReducer =(state:TableState, action: TableActionType):TableStat
         return {
             ...state,
             card: action.payload,
+        }
+    case '[Table]- DeleteCardFromTable':
+        return {
+            card: undefined,
         }
 
         default:

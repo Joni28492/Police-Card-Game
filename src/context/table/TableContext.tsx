@@ -5,6 +5,7 @@ interface ContextProps {
     card?: ICard;
     //methods
     setCardOnTable: (playCard: ICard) => void
+    deleteCardOnTable: () => void
 }
 
 export const TableContext = createContext({} as ContextProps )

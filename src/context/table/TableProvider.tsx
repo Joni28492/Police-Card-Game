@@ -22,12 +22,16 @@ import { TableContext, tableReducer } from './';
             dispatch({type:'[Table]- PutCardOnTable', payload: playCard })
         }
 
+        const deleteCardOnTable = () =>{
+            dispatch({type: '[Table]- DeleteCardFromTable'})
+        }
 
         return ( 
             <TableContext.Provider value={{
                 card:state.card,
                 //methods
                 setCardOnTable,
+                deleteCardOnTable,
             }}>
                 {children}
             </TableContext.Provider>
