@@ -16,7 +16,8 @@ import { ICard } from '../../interfaces';
 
     //?UID Version
     const Deck_INITIAL_STATE:DeckState = {
-        deck:cards.sort(()=>{return Math.random() - 0.5}).splice(3),
+        deck: cards.sort(()=>{return Math.random() - 0.5}).splice(3).slice(),
+
         //Ojo con la referencia del arr, solventamos con el slice
         hand: cards.slice().splice(0,3)
     }

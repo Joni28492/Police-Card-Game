@@ -1,5 +1,8 @@
 import { ITitle, IDescription, IImage, ICard, IButton } from '../interfaces/index';
 import logo from '../favicon.svg'
+import { useContext } from 'react';
+import { DeckContext } from '../context/deck';
+import { TableContext } from '../context/table/TableContext';
 
 
 
@@ -7,7 +10,24 @@ import logo from '../favicon.svg'
 export const Card = (card:ICard) => {
   const  {src, title, desc, background, id,uid, style} = card;
 
+  const {discardCard,putOnDeck,useCard} = useContext(DeckContext)
+  const {deleteCardOnTable} = useContext(TableContext)
 
+
+  const handleUseCard=(cardToUse:ICard)=>{
+    useCard(cardToUse)
+    deleteCardOnTable()
+  }
+  const handleDiscard=(cardToDiscard:ICard)=>{
+    discardCard(cardToDiscard)
+    deleteCardOnTable()
+  }
+
+
+  const handleToDeck = (cardToDeck:ICard) =>{
+    putOnDeck(cardToDeck)
+    deleteCardOnTable()
+  }
   
   return (
     <div
@@ -36,15 +56,15 @@ export const Card = (card:ICard) => {
 
           
      
-          <div onClick={() => console.log("Usar Carta, y la pila de descartes")}>
+          <div onClick={() => handleUseCard(card)}>
             <Button label='Usar' />
           </div>
     
-          <div onClick={() => console.log("DescartarCarta y a la pila de descartes, eliminar de tablero")}>
+          <div onClick={() => handleDiscard(card)}>
             <Button label='Descartar' background='darkred' />
           </div>
       
-          <div onClick={()=>console.log("Poner carta en el deck y eliminar del tablero")}>
+          <div onClick={()=>handleToDeck(card)}>
             <Button label='Al Deck' background='goldenrod' />
           </div>
         </div>

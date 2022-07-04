@@ -17,6 +17,9 @@ export interface ICard extends IStyles{
     src:string;
 }
 
+// export interface IUniqueICard extends ICard{
+//     uid:string;
+// }
 
 type Colors = 
     | 'DarkOliveGreen' 
