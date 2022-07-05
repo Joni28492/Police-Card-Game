@@ -1,27 +1,34 @@
 
 
-import { Card } from '../Card'
-import { ICard } from '../../interfaces/index';
+import {  Card, IconButton } from '../Card'
+// import { ICard } from '../../interfaces/index';
 import { Stars } from './Stars';
 import { useContext } from 'react';
 import { TableContext } from '../../context/table';
+import { UIContext } from '../../context/UI';
+import { Restricciones } from './';
+import { Question } from './Question';
+import { IRestrictions } from '../../interfaces';
 
-
+import {v4 as uuid} from 'uuid'
+import { questions } from '../../data/questions';
 
 interface ITable  {
-    restrictions?: restrictions [];
-    stars: number, 
+    restrictions?: IRestrictions [];
+
 }
 
-type restrictions = 
-    | 'grilletes' 
-    | 'others restrictions' 
 
-export const Tablero = ({restrictions, stars}:ITable) => {
+
+export const Tablero = ({restrictions}:ITable) => {
 
 
 const {card} = useContext(TableContext)
+const {toggleHand, screen} = useContext(UIContext)
 
+const showHideHand = () =>{
+  toggleHand()
+}
 
 
   return (
@@ -34,14 +41,26 @@ const {card} = useContext(TableContext)
       }}>
 
     
-
+          {/* Screens */}
           <Stars stars={4} />
+          {/* Restricciones*/}
+          <Restricciones restrictions={'Carcel'} />
+          
+    
+
+          {/*TODO DeckScreen */}
+        
 
           <div style={{
             display:'flex', flexWrap: 'wrap', justifyContent: 'center'
           }}>
 
+            {/* Questions */}
+              <Question uid={uuid()} question={questions[0].question} 
+              solution={questions[0].solution} />
+            
 
+            {/* Carta si esta seleccionda */}
             {
               (card) &&
                 <Card 
@@ -59,6 +78,12 @@ const {card} = useContext(TableContext)
 
           </div>
 
+          {/* No Funciona el toggle */}
+          <div onClick={ showHideHand }>
+            <IconButton 
+              icon={<i className="fa-solid fa-hand"/>} 
+            />
+          </div>
 
       </div>
   )

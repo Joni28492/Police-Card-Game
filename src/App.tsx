@@ -1,15 +1,21 @@
-import { Tablero, Mano } from './components/UI';
+import { Tablero, Mano, Navbar } from './components/UI';
 import './App.css'
+import { useContext } from 'react';
+import { UIContext } from './context/UI';
 
 
 function App() {
 
+  const {openHandMenu} = useContext(UIContext)
+
   return (
 
         <div className="App">
-          {/* <Tablero stars={0} card={ { card } as unknown as ICard }/> */}
-          <Tablero stars={0}  />
-          <Mano />
+          {/* <Navbar /> */}
+          <Tablero  />
+          {
+            (openHandMenu) && <Mano />
+          }
         </div>
 
   )

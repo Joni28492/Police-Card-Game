@@ -1,4 +1,4 @@
-import { ITitle, IDescription, IImage, ICard, IButton } from '../interfaces/index';
+import { ITitle, IDescription, IImage, ICard, IButton, IIconButton } from '../interfaces/index';
 import logo from '../favicon.svg'
 import { useContext } from 'react';
 import { DeckContext } from '../context/deck';
@@ -28,6 +28,8 @@ export const Card = (card:ICard) => {
     putOnDeck(cardToDeck)
     deleteCardOnTable()
   }
+
+  
   
   return (
     <div
@@ -50,8 +52,8 @@ export const Card = (card:ICard) => {
 
         <div style={{
           display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'flex-end'
+          flexWrap: 'wrap',
+          justifyContent: 'center'
         }}>
 
           
@@ -59,13 +61,16 @@ export const Card = (card:ICard) => {
           <div onClick={() => handleUseCard(card)}>
             <Button label='Usar' />
           </div>
-    
+        
           <div onClick={() => handleDiscard(card)}>
             <Button label='Descartar' background='darkred' />
           </div>
-      
+        
           <div onClick={()=>handleToDeck(card)}>
             <Button label='Al Deck' background='goldenrod' />
+          </div>
+          <div style={{marginTop: 10}} onClick={deleteCardOnTable}>
+            <Button label='A la Mano' background='dodgerblue' />
           </div>
         </div>
     
@@ -145,6 +150,32 @@ export const Button = ({label, background,style, className}:IButton) => {
           ...style
         }}
        >{label}</button>
+    
+  )
+}
+
+export const IconButton = ({icon, background,style, className}:IIconButton) => {
+  return (
+    
+       <button
+       className={className}
+        style={{
+          backgroundColor:(background)?background:'DarkGrey',
+          color: 'lightgray',
+          borderRadius: '16px',
+          border: '1px solid transparent',
+          marginLeft:'4px',
+          marginRight:'4px',
+          fontSize: '18px',
+          width: '75px',
+          height: '45px',
+          marginBottom: '5px',
+          ...style
+        }}
+       >
+        {icon}
+
+       </button>
     
   )
 }

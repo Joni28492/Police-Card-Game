@@ -14,7 +14,7 @@ export const Mano = () => {
 
   return (
   
-    <div style={{ display:'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+    <div style={{ display:'flex', flexWrap: 'wrap', justifyContent: 'center', backgroundColor:'#282c34'}}>
     {
       hand.map(({title, desc, src, background, id, uid})=>(
        
