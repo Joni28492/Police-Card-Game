@@ -1,14 +1,13 @@
 import { IListItem } from '../../interfaces'
-import { useContext } from 'react';
-import { ScreensType, UIContext } from '../../context/UI';
+import { FC, useContext } from 'react';
+import {  UIContext } from '../../context/UI';
 
-export const Navbar = () => {
+export const Navbar:FC = () => {
 
-  const {setScreen} = useContext(UIContext)
+  const {setScreensOnTable} = useContext(UIContext)
 
-    // const handleSetScreen = (screen:ScreensType) =>{
-    //     setScreen(screen);
-    // }
+
+  
 
   return (
    
@@ -23,23 +22,32 @@ export const Navbar = () => {
     }}>
         <div
             style={{cursor: 'pointer'}} 
-            onClick={()=>setScreen("Stars")}>
+            onClick={()=>{
+              setScreensOnTable("Stars")
+            }}
+            >
             <ListItem text='Estrellas'/>
         </div>
         <div
             style={{cursor: 'pointer'}} 
-            onClick={()=>setScreen("Restrictions")}>
+                onClick={()=>{
+                  setScreensOnTable("Restrictions")
+                }}>
             <ListItem text='Restricciones'/>
         </div>
         <div
             style={{cursor: 'pointer'}} 
-            onClick={()=>setScreen("Questions")}>
+                onClick={()=>{
+                  setScreensOnTable("Questions")
+                }}>
             <ListItem text='Preguntas'/>
         </div>
     
         <div 
             style={{cursor: 'pointer'}} 
-            onClick={()=>setScreen("Deck")}>
+                onClick={()=>{
+                  setScreensOnTable("Deck")
+                }}>
             <ListItem text='Baraja'/>
         </div>
                     

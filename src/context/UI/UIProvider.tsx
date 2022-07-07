@@ -1,16 +1,17 @@
 import { FC, PropsWithChildren, useReducer } from 'react';
-import { UIContext, uiReducer } from './';
-import { ScreensType } from './UIContext';
+import { UIContext, uiReducer, ScreensType } from './';
+
 
 
     export interface UIState {
         openHandMenu: boolean;
-        screen: ScreensType;
+        screen: ScreensType []
     }
 
     const UI_INITIAL_STATE:UIState = {
+        screen: ["Stars", "Questions"],
         openHandMenu: false,
-        screen: "Empty"
+    
     }
 
     interface Props {}
@@ -23,17 +24,20 @@ import { ScreensType } from './UIContext';
             dispatch({type:'[UI]- ToggleHand'})
         }
 
-        const setScreen = (screen:ScreensType) =>{
-            dispatch({type: '[UI]- SetScreen', payload: screen})
+        const setScreensOnTable = (screeToAdded:ScreensType)=>{
+            dispatch({type:'[UI]- SetScreen', payload: screeToAdded})
         }
+ 
 
         return ( 
             <UIContext.Provider value={{
-                openHandMenu: true,
-                screen: "Empty",
+
+                openHandMenu: true, 
+                screen: ['Stars', 'Questions'],             
                 //methods
                 toggleHand,
-                setScreen,
+                setScreensOnTable,
+           
 
             }}>
                 {children}

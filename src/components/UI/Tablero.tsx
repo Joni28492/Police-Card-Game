@@ -15,7 +15,6 @@ import { questions } from '../../data/questions';
 
 interface ITable  {
     restrictions?: IRestrictions [];
-
 }
 
 
@@ -31,6 +30,8 @@ const showHideHand = () =>{
 }
 
 
+
+
   return (
     <div style={{
         color: 'white',
@@ -41,10 +42,12 @@ const showHideHand = () =>{
       }}>
 
     
-          {/* Screens */}
-          <Stars stars={4} />
-          {/* Restricciones*/}
-          <Restricciones restrictions={'Carcel'} />
+          { 
+            (screen.includes("Stars")) && <Stars stars={4} />
+          }
+          {
+            (screen.includes("Restrictions")) && <Restricciones restrictions={'Carcel'} />
+          }
           
     
 
@@ -55,9 +58,11 @@ const showHideHand = () =>{
             display:'flex', flexWrap: 'wrap', justifyContent: 'center'
           }}>
 
-            {/* Questions */}
+            {
+              (screen.includes("Questions")) && 
               <Question uid={uuid()} question={questions[0].question} 
               solution={questions[0].solution} />
+            }
             
 
             {/* Carta si esta seleccionda */}

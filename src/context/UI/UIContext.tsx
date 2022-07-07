@@ -9,10 +9,12 @@ export type ScreensType =
 
 interface ContextProps {
     openHandMenu: boolean;
-    screen:  ScreensType;
+    screen:  ScreensType[];
     //methods
     toggleHand: ()=>void;
-    setScreen: (screen:ScreensType) =>void;
+    setScreensOnTable: (screeToAdded: ScreensType) => void;
+
+
 }
 
 export const UIContext = createContext({} as ContextProps )

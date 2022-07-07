@@ -1,3 +1,4 @@
+import { ScreensType } from '../context/UI';
 import { cards } from '../data/cards';
 import { ICard } from '../interfaces/index';
 
@@ -22,6 +23,21 @@ export const addedFirstPlace = (arrToAdded:ICard[], cardToAdded: ICard):ICard[] 
     console.log("carta en Top" , arrToTop);
     return arrToTop;
 }
+
+
+export const setScreensOnArr = (screen:ScreensType, actualScreen:ScreensType[]):ScreensType[] =>{
+    let modifiedArr:ScreensType[] = []
+
+    if(actualScreen.includes(screen)){
+        modifiedArr = actualScreen.filter( s => s!== screen )
+    }else{
+        modifiedArr = [...actualScreen, screen]
+    }
+
+
+    return modifiedArr;
+}
+
 
 //TODO generar ramdom deck
 //! no hace falta
