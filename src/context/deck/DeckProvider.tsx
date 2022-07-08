@@ -2,6 +2,7 @@ import { FC, PropsWithChildren, useReducer } from 'react';
 import { DeckContext, deckReducer } from './';
 import { cards } from '../../data/cards';
 import { ICard } from '../../interfaces';
+import { randomDeck, randomHand } from '../../helpers/arrays';
 
 
 
@@ -13,13 +14,9 @@ import { ICard } from '../../interfaces';
     }
 
     
-
-    //?UID Version
     const Deck_INITIAL_STATE:DeckState = {
-        deck: cards.sort(()=>{return Math.random() - 0.5}).splice(3).slice(),
-
-        //Ojo con la referencia del arr, solventamos con el slice
-        hand: cards.slice().splice(0,3)
+        deck: randomDeck(cards, 60).slice(),
+        hand: randomHand(cards, 7)
     }
 
     interface Props {}

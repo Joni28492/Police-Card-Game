@@ -14,7 +14,7 @@ function App() {
           <Navbar />
           <Tablero  />
           {
-            (openHandMenu) && <Mano />
+            (openHandMenu) && <Mano /> 
           }
         </div>
 

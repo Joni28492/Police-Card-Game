@@ -1,10 +1,17 @@
 
+import { useState } from 'react'
 import { IQuestion } from '../../interfaces'
 import { Button } from '../Card'
 
-export const Question = ({question,solution, className,style}:IQuestion) => {
+export const Question = ({question,solution, className,style, stars}:IQuestion) => {
+
+
+    const [showAnswer, setShowAnswer] = useState<boolean>(true);
+
   return (
-    <section style={{
+    <section 
+    className={className}    
+    style={{
         display:'flex',
         flexDirection: 'column',
         alignItems:'center',
@@ -20,18 +27,37 @@ export const Question = ({question,solution, className,style}:IQuestion) => {
     }}>
         <strong style={{ fontSize: 22}}>{question}</strong>
         
-        <span style={{
-            marginTop: '15px',
-            marginBottom: '15px',
-        }}>{solution}</span>
+
+        {
+            (showAnswer) && 
+                <span style={{
+                    marginTop: '15px',
+                    marginBottom: '15px',
+                }}>{solution}</span>
+        }
+
+                 
+
+        <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}>
+            <h3 style={{ fontSize: '32px', marginRight: '5px'}}>{stars}</h3>
+        <i  style={{ color: 'goldenrod', fontSize: '28px',}} className="fa-solid fa-star " />
+        </div>
+
 
         <div style={{
             display: 'flex'
         }}>
             <Button label={'Resuelta'} />
-            <Button label={'Fallada'} style={{backgroundColor: 'darkred'}} />
             <Button label={'Random'} style={{backgroundColor: 'mediumseagreen'}} />
-            <Button label={'Hide'} style={{backgroundColor: 'black'}} />
+            <div onClick={()=>setShowAnswer(!showAnswer)}>
+                <Button  label={
+                    (showAnswer) ?'Hide':'Show'
+                } style={{backgroundColor: 'black'}} />
+            </div>
 
         </div>
 

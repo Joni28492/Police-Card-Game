@@ -29,6 +29,7 @@ export interface IQuestion extends IStyles {
     uid:string;
     question: string;
     solution: string | number | string [];
+    stars: number;
 }
 
 type RestrictionsType = 

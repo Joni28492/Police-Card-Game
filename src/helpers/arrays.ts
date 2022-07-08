@@ -2,7 +2,7 @@ import { ScreensType } from '../context/UI';
 import { cards } from '../data/cards';
 import { ICard } from '../interfaces/index';
 
-//TODO Robos de  2 en 2, corregir
+
 
 
 
@@ -39,22 +39,36 @@ export const setScreensOnArr = (screen:ScreensType, actualScreen:ScreensType[]):
 }
 
 
-//TODO generar ramdom deck
-//! no hace falta
-// const getRandomInt = (min:number, max:number):number => {
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-// export const ramdonDeckInRange=(existingCards:number, sizeOfDeck:number):ICard[]=>{
-//     let deck: ICard | [] =[];
 
-//     for (let i = 0; i <=sizeOfDeck; i++) {
-//         const r = getRandomInt(0, existingCards);
-//         console.log(r)
-//         //add card by Id
-//     }
+export const randomDeck = (existingCards:ICard[], deckSize:number ):ICard[] =>{
+
+    let yourDeck: ICard[] = []
+    let randomInt:number;
+
+    for (let i = 0; i < deckSize; i++) {
+        randomInt = getRandomInt(0, existingCards.length -1)
+        yourDeck = [...yourDeck, existingCards[randomInt] ] 
+    }
+
+    return yourDeck;
+}
+export const randomHand = (existingCards:ICard[], handSize:number ):ICard[] =>{
+
+    let yourHand: ICard[] = []
+    let randomInt:number;
+
+    for (let i = 0; i < handSize; i++) {
+        randomInt = getRandomInt(1, existingCards.length -1)
+        yourHand = [...yourHand, existingCards[randomInt] ] 
+    }
+
+    return yourHand;
+}
 
 
-//      return deck
-// }
+
+const getRandomInt = (min:number, max:number) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }

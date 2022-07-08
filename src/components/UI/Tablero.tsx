@@ -1,5 +1,6 @@
 
 
+
 import {  Card, IconButton } from '../Card'
 // import { ICard } from '../../interfaces/index';
 import { Stars } from './Stars';
@@ -25,10 +26,8 @@ export const Tablero = ({restrictions}:ITable) => {
 const {card} = useContext(TableContext)
 const {toggleHand, screen} = useContext(UIContext)
 
-const showHideHand = () =>{
-  toggleHand()
-}
 
+ 
 
 
 
@@ -60,8 +59,8 @@ const showHideHand = () =>{
 
             {
               (screen.includes("Questions")) && 
-              <Question uid={uuid()} question={questions[0].question} 
-              solution={questions[0].solution} />
+              <Question uid={uuid()} question={questions[0].question}
+              solution={questions[0].solution} stars={2} />
             }
             
 
@@ -84,7 +83,7 @@ const showHideHand = () =>{
           </div>
 
           {/* No Funciona el toggle */}
-          <div onClick={ showHideHand }>
+          <div onClick={ toggleHand }>
             <IconButton 
               icon={<i className="fa-solid fa-hand"/>} 
             />

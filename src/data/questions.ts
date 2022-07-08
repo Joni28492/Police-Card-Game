@@ -5,27 +5,33 @@ export const questions: IQuestion[] = [
     {
         uid: uuid(),
         question: "Quien ostenta la Jefatura de la policia local",
-        solution: "El Alcalde"
+        solution: "El Alcalde",
+        stars: 2,
     },
     {   uid: uuid(),
         question: "Quien nombra a los miembros del tribunal constitucional segun el Art 159 de la CE",
-        solution: "El Rey"
+        solution: "El Rey",
+        stars: 2,
     },
     {   uid: uuid(),
         question: "En que Art. de la CE se recoge el principio de jerarquia normativa",
-        solution: 9
+        solution: 9,
+        stars: 2,
     },
     {   uid: uuid(),
         question: "",
-        solution: ""
+        solution: "",
+        stars: 2,
     },
     {   uid: uuid(),
         question: "",
-        solution: ""
+        solution: "",
+        stars: 2,
     },
     {   uid: uuid(),
         question: "",
-        solution: ""
+        solution: "",
+        stars: 2,
     },
 
 ]
