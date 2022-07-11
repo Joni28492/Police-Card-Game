@@ -21,21 +21,24 @@ export interface ICard extends IStyles{
 }
 
 
-export interface IRestrictions extends IStyles{
-    restrictions?: RestrictionsType
-}
+
 
 export interface IQuestion extends IStyles {
+    id: number;
     uid:string;
     question: string;
     solution: string | number | string [];
     stars: number;
+    author?:string;
+    img?:string;
+    hint?:string;
 }
 
-type RestrictionsType = 
+//Types
+
+export type RestrictionsType = 
     | "Sin Turno" 
     | "Grilletes"
-    | "Carcel"
     | "Copiar Restricciones"
 
 type Colors = 
@@ -47,3 +50,10 @@ type Colors =
     | 'DarkSlateGrey'
     | 'FireBrick'
     | 'Tan'
+
+
+export type Categories = 
+    | 'Auxiliar'
+    | 'Interino'
+    | 'Agente'
+    | 'Mando'

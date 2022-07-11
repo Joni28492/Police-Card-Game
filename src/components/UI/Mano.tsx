@@ -3,6 +3,8 @@ import { DeckContext } from '../../context/deck'
 import { MiniCard } from '../MiniCard'
 import { Button } from '../Card';
 import { v4 as uuid } from 'uuid';
+import { MiniCardReverse } from '../MiniCardReverse';
+import { UIContext } from '../../context/UI';
 
 
 
@@ -10,6 +12,7 @@ import { v4 as uuid } from 'uuid';
 export const Mano = () => {
 
   const {hand, drawCard} = useContext(DeckContext)
+  const {openHandMenu} = useContext(UIContext)
 
 
   return (
@@ -18,8 +21,9 @@ export const Mano = () => {
     {
       hand.map(({title, desc, src, background, id, uid})=>(
        
+          (openHandMenu) ?
           <MiniCard 
-                key={uuid()}
+                key={uid}
                 uid={uid}
                 id={id}
                 title={title} 
@@ -28,9 +32,10 @@ export const Mano = () => {
                 background={background}
                 style={{margin:'15px'}} 
           />
+          :<MiniCardReverse key={uuid()} />
       ))
     }
-
+ 
     <div onClick={drawCard}>
       <Button label={'robar'}  />
     </div>

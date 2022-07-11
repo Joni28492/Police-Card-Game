@@ -43,14 +43,14 @@ export const Navbar:FC = () => {
             <ListItem text='Preguntas'/>
         </div>
     
-        <div 
+        {/* <div 
             style={{cursor: 'pointer'}} 
                 onClick={()=>{
                   setScreensOnTable("Deck")
                 }}>
             <ListItem text='Baraja'/>
         </div>
-                    
+                     */}
     </ul>
   
   )

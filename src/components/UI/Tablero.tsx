@@ -13,6 +13,7 @@ import { IRestrictions } from '../../interfaces';
 
 import {v4 as uuid} from 'uuid'
 import { questions } from '../../data/questions';
+import { QuestionContext, QuestionProvider } from '../../context/questions';
 
 interface ITable  {
     restrictions?: IRestrictions [];
@@ -26,6 +27,7 @@ export const Tablero = ({restrictions}:ITable) => {
 const {card} = useContext(TableContext)
 const {toggleHand, screen} = useContext(UIContext)
 
+const {question} = useContext(QuestionContext)
 
 
 
@@ -57,8 +59,14 @@ const {toggleHand, screen} = useContext(UIContext)
 
             {
               (screen.includes("Questions")) && 
-              <Question uid={uuid()} question={questions[0].question}
-              solution={questions[0].solution} stars={2} />
+              <Question 
+                id={question.id} 
+                uid={question.uid} 
+                question={question.question}
+                solution={question.solution} 
+                stars={question.stars} 
+                hint={question.hint}
+                />
             }
             
 

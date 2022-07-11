@@ -32,9 +32,7 @@ import { UIContext, uiReducer, ScreensType } from './';
         return ( 
             <UIContext.Provider value={{
                 //~Spread del state, si las mandamos por separado nos empezara a dar errores
-                ...state,
-                // openHandMenu: true, 
-                // screen: ['Stars', 'Questions'],             
+                ...state,            
                 //methods
                 toggleHand,
                 setScreensOnTable,

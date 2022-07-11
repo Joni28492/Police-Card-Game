@@ -1,6 +1,7 @@
 import { ScreensType } from '../context/UI';
 import { cards } from '../data/cards';
-import { ICard } from '../interfaces/index';
+import { questions } from '../data/questions';
+import { ICard, IQuestion } from '../interfaces/index';
 
 
 
@@ -64,6 +65,10 @@ export const randomHand = (existingCards:ICard[], handSize:number ):ICard[] =>{
 
     return yourHand;
 }
+
+export const randomQuestion = (existingQuestion:IQuestion[], questionSize:number)
+:IQuestion => questions[getRandomInt(1, questionSize)];
+
 
 
 

@@ -1,12 +1,30 @@
 
-import { useState } from 'react'
+import { useState, useContext } from 'react';
+import { QuestionContext } from '../../context/questions';
 import { IQuestion } from '../../interfaces'
 import { Button } from '../Card'
+import confetti from 'canvas-confetti'
 
-export const Question = ({question,solution, className,style, stars}:IQuestion) => {
+export const Question = ({question,solution, className,style, stars, hint}:IQuestion) => {
 
 
     const [showAnswer, setShowAnswer] = useState<boolean>(false);
+    const [showHint, setShowHint] = useState<boolean>(false)
+    const {setRandomQuestion} = useContext(QuestionContext)
+
+    const onToggleSuccess = () =>{
+
+        confetti({
+            zIndex: 999,
+            particleCount: 100,
+            spread: 160,
+            angle: -100,
+            origin: {
+                x: 1,
+                y: 0
+            }
+        })
+    }
 
   return (
     <section 
@@ -48,11 +66,36 @@ export const Question = ({question,solution, className,style, stars}:IQuestion) 
         </div>
 
 
+        {/* Pista si la hay */}
+        {
+            (showHint && hint) && 
+            <div
+                style={{
+                    backgroundColor: 'SandyBrown',
+                    borderRadius: '8px',
+                    padding: '6px',
+                    marginBottom: '12px'
+                }}
+            >{hint}</div>
+        }
+
         <div style={{
             display: 'flex'
         }}>
-            <Button label={'Resuelta'} />
-            <Button label={'Random'} style={{backgroundColor: 'mediumseagreen'}} />
+            <div onClick={onToggleSuccess}>
+                <Button label={'Resuelta'} />
+            </div>
+
+            <div onClick={()=>setShowHint(!showHint)}>
+                <Button style={{backgroundColor: 'SaddleBrown'}} label={'pista'} />
+            </div>
+            
+            <div onClick={ ()=>setRandomQuestion() }>
+                <Button label={'Random'} style={{backgroundColor: 'mediumseagreen'}} />
+            </div>
+            
+
+
             <div onClick={()=>setShowAnswer(!showAnswer)}>
                 <Button  label={
                     (showAnswer) ?'Hide':'Show'

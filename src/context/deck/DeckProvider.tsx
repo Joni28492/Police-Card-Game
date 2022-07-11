@@ -16,7 +16,7 @@ import { randomDeck, randomHand } from '../../helpers/arrays';
     
     const Deck_INITIAL_STATE:DeckState = {
         deck: randomDeck(cards, 60).slice(),
-        hand: randomHand(cards, 7)
+        hand: randomHand(cards, 5)
     }
 
     interface Props {}
