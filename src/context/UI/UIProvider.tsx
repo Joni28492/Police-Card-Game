@@ -31,14 +31,13 @@ import { UIContext, uiReducer, ScreensType } from './';
 
         return ( 
             <UIContext.Provider value={{
-
-                openHandMenu: true, 
-                screen: ['Stars', 'Questions'],             
+                //~Spread del state, si las mandamos por separado nos empezara a dar errores
+                ...state,
+                // openHandMenu: true, 
+                // screen: ['Stars', 'Questions'],             
                 //methods
                 toggleHand,
                 setScreensOnTable,
-           
-
             }}>
                 {children}
             </UIContext.Provider>

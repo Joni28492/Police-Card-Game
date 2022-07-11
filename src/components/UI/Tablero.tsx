@@ -27,8 +27,6 @@ const {card} = useContext(TableContext)
 const {toggleHand, screen} = useContext(UIContext)
 
 
- 
-
 
 
   return (
@@ -42,7 +40,7 @@ const {toggleHand, screen} = useContext(UIContext)
 
     
           { 
-            (screen.includes("Stars")) && <Stars stars={4} />
+            (screen.includes("Stars")) && <Stars stars={4} /> 
           }
           {
             (screen.includes("Restrictions")) && <Restricciones restrictions={'Carcel'} />

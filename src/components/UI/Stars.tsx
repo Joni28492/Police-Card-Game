@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useState } from 'react';
 
 interface IStars {
@@ -8,6 +8,8 @@ interface IStars {
 export const Stars = ({stars}:IStars) => {
 
     const [counterStars, setCounterStars] = useState(stars);
+        
+
 
   return (
     <div style={{display:'flex', flexDirection: 'column'}}>

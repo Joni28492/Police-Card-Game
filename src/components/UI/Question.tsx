@@ -6,7 +6,7 @@ import { Button } from '../Card'
 export const Question = ({question,solution, className,style, stars}:IQuestion) => {
 
 
-    const [showAnswer, setShowAnswer] = useState<boolean>(true);
+    const [showAnswer, setShowAnswer] = useState<boolean>(false);
 
   return (
     <section 

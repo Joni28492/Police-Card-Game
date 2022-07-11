@@ -7,14 +7,15 @@ import { UIProvider } from './context/UI'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-       <UIProvider>
+  // <React.StrictMode>
+    <>
+       <UIProvider >
           <DeckProvider>
             <TableProvider >
               <App />
             </TableProvider>
           </DeckProvider>
        </UIProvider>
+       </>
 
-  </React.StrictMode>
 )
