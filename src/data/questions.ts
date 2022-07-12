@@ -31,7 +31,7 @@ export const questions: IQuestion[] = [
         uid: uuid(),
         question: "??????",
         solution: "????",
-        stars: 0,
+        stars: 1,
    
     },
 

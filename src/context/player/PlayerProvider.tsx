@@ -14,7 +14,7 @@ import { PlayerContext, playerReducer } from './';
     const Player_INITIAL_STATE:PlayerState = {
         name: 'Player1',
         category: 'Auxiliar',
-        restritions: ['Grilletes', 'Sin Turno','Copiar Restricciones'],
+        restritions: [],
         carcel: 0,
         stars: 0,
     }

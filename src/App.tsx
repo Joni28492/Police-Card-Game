@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { UIContext } from './context/UI';
 
 
+
 function App() {
 
   const {openHandMenu} = useContext(UIContext)
@@ -11,6 +12,7 @@ function App() {
   return (
 
         <div className="App">
+      
           <Navbar />
           <Tablero  />
           {
