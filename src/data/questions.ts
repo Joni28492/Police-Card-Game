@@ -10,21 +10,24 @@ export const questions: IQuestion[] = [
         stars: 2,
       
     },
-    {   id: 2,
+    {   
+        id: 2,
         uid: uuid(),
         question: "Quien nombra a los miembros del tribunal constitucional segun el Art 159 de la CE",
         solution: "El Rey",
         stars: 2,
       
     },
-    {   id: 3,
+    {   
+        id: 3,
         uid: uuid(),
         question: "En que Art. de la CE se recoge el principio de jerarquia normativa",
         solution: 9,
-        stars: 2,
+        stars: 3,
       
     },
-    {   id: 4,
+    {   
+        id: 4,
         uid: uuid(),
         question: "??????",
         solution: "????",

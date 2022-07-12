@@ -1,21 +1,41 @@
 
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
+import { PlayerContext } from '../../context/player';
 
-interface IStars {
-    stars:number
-}
 
-export const Stars = ({stars}:IStars) => {
 
-    const [counterStars, setCounterStars] = useState(stars);
-        
+export const Stars = () => {
 
+
+    const {name, stars,category, increaseStars,decreaseStars, setCategories} = useContext(PlayerContext)
+
+    useEffect(() => {
+      
+        setCategories();
+
+    }, [stars])
+    
 
   return (
     <div style={{display:'flex', flexDirection: 'column'}}>
+
+        <section>
+            <article>
+                <strong>Nombre: </strong>
+                <label>{name}</label>
+            </article> 
+            <article>
+                <strong>Rango: </strong>
+                <label>{category}</label>   
+            </article>    
         
-        <div style={{display:'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'center'}}>
-            <h3 style={{fontSize: '35px'}}>{counterStars}</h3>
+        </section>        
+
+   
+     
+        <div style={{display:'flex', flexDirection: 'row', alignItems: 'center', justifyContent:'center', marginTop: '16px'}}>
+
+        <h3 style={{fontSize: '35px'}}>{stars}</h3>
 
             <i
                
@@ -27,7 +47,7 @@ export const Stars = ({stars}:IStars) => {
             
         </div>
         
-        <label>Stars</label>
+      
 
 
         <div style={{
@@ -40,18 +60,18 @@ export const Stars = ({stars}:IStars) => {
 
             <i  style={{
                 fontSize: '35px',
-                color: 'lightgreen',
+                color: 'firebrick',
                 marginRight: '25px',
             }}
-                onClick={()=>setCounterStars(counterStars+1)}
-                className="fa-solid fa-circle-plus" />
+                onClick={decreaseStars}
+                className="fa-solid fa-circle-minus" />
             <i  style={{
                 fontSize: '35px',
-                color: 'firebrick',
+                color: 'lightgreen',
                 marginLeft: '25px',
             }}
-                onClick={()=>setCounterStars(counterStars-1)}
-                className="fa-solid fa-circle-minus" />
+                onClick={increaseStars}
+                className="fa-solid fa-circle-plus" />
 
         </div>
     </div>

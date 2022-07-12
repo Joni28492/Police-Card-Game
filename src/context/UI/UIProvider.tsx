@@ -9,7 +9,7 @@ import { UIContext, uiReducer, ScreensType } from './';
     }
 
     const UI_INITIAL_STATE:UIState = {
-        screen: ["Stars", "Questions"],
+        screen: ["Stars", "Questions", "Restrictions"],
         openHandMenu: true,
     
     }

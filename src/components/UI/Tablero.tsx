@@ -14,6 +14,7 @@ import { IRestrictions } from '../../interfaces';
 import {v4 as uuid} from 'uuid'
 import { questions } from '../../data/questions';
 import { QuestionContext, QuestionProvider } from '../../context/questions';
+import { PlayerContext } from '../../context/player';
 
 interface ITable  {
     restrictions?: IRestrictions [];
@@ -26,10 +27,8 @@ export const Tablero = ({restrictions}:ITable) => {
 
 const {card} = useContext(TableContext)
 const {toggleHand, screen} = useContext(UIContext)
-
 const {question} = useContext(QuestionContext)
-
-
+const {restritions} = useContext(PlayerContext)
 
   return (
     <div style={{
@@ -42,10 +41,10 @@ const {question} = useContext(QuestionContext)
 
     
           { 
-            (screen.includes("Stars")) && <Stars stars={4} /> 
+            (screen.includes("Stars")) && <Stars/> 
           }
           {
-            (screen.includes("Restrictions")) && <Restricciones restrictions={'Carcel'} />
+            (screen.includes("Restrictions") &&  restrictions?.length!==0) && <Restricciones restrictions={restritions} />
           }
           
     

@@ -1,7 +1,7 @@
 import { ScreensType } from '../context/UI';
 import { cards } from '../data/cards';
 import { questions } from '../data/questions';
-import { ICard, IQuestion } from '../interfaces/index';
+import { ICard, IQuestion, RestrictionsType } from '../interfaces/index';
 
 
 
@@ -77,3 +77,17 @@ const getRandomInt = (min:number, max:number) => {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
   }
+
+
+//Posible generico con la otra de los Screens
+  export const setRestrictionsOnArr = (restriction:RestrictionsType, actualRestriction:RestrictionsType[]):RestrictionsType[] =>{
+    let modifiedArr:RestrictionsType[] = []
+
+    if(actualRestriction.includes(restriction)){
+        modifiedArr = actualRestriction.filter( r => r!== restriction )
+    }else{
+        modifiedArr = [...actualRestriction, restriction]
+    }
+
+    return modifiedArr;
+}

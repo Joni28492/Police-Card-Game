@@ -34,6 +34,11 @@ export interface IQuestion extends IStyles {
     hint?:string;
 }
 
+
+export interface IRestrictions extends IStyles {
+    restrictions:RestrictionsType[]
+}
+
 //Types
 
 export type RestrictionsType = 

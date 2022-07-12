@@ -1,5 +1,5 @@
 
-import { useState, useContext } from 'react';
+import { useState, useContext, FC } from 'react';
 import { QuestionContext } from '../../context/questions';
 import { IQuestion } from '../../interfaces'
 import { Button } from '../Card'
@@ -59,10 +59,13 @@ export const Question = ({question,solution, className,style, stars, hint}:IQues
         <div style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            padding: '14px'
         }}>
-            <h3 style={{ fontSize: '32px', marginRight: '5px'}}>{stars}</h3>
-        <i  style={{ color: 'goldenrod', fontSize: '28px',}} className="fa-solid fa-star " />
+            {/* <h3 style={{ fontSize: '32px', marginRight: '5px'}}>{stars}</h3>
+        <i  style={{ color: 'goldenrod', fontSize: '28px',}} className="fa-solid fa-star " /> */}
+            <StartQuestion stars={stars}/>
+        
         </div>
 
 
@@ -86,9 +89,10 @@ export const Question = ({question,solution, className,style, stars, hint}:IQues
                 <Button label={'Resuelta'} />
             </div>
 
+            {(hint) &&
             <div onClick={()=>setShowHint(!showHint)}>
                 <Button style={{backgroundColor: 'SaddleBrown'}} label={'pista'} />
-            </div>
+            </div>}
             
             <div onClick={ ()=>setRandomQuestion() }>
                 <Button label={'Random'} style={{backgroundColor: 'mediumseagreen'}} />
@@ -106,4 +110,42 @@ export const Question = ({question,solution, className,style, stars, hint}:IQues
 
     </section>
   )
+}
+
+
+
+
+interface IStarQuestion {
+    stars:number;
+}
+
+export const StartQuestion = ({stars}:IStarQuestion) => {
+
+    if(stars === 1) 
+    return  <i  style={{ color: 'Sienna', fontSize: '28px',}} className="fa-solid fa-star " />
+
+    if(stars === 2) 
+    return (
+        <>
+            <i  style={{ color: 'Silver', fontSize: '28px',}} className="fa-solid fa-star " />
+            <i  style={{ color: 'Silver', fontSize: '28px',}} className="fa-solid fa-star " />
+        </>
+    )
+    if(stars === 3) 
+    return (
+        <>
+            <i  style={{ color: 'goldenrod', fontSize: '25px',}} className="fa-solid fa-star " />
+            <i  style={{ color: 'goldenrod', fontSize: '40px', marginTop: '-15px'}} className="fa-solid fa-star " />
+            <i  style={{ color: 'goldenrod', fontSize: '25px',}} className="fa-solid fa-star " />
+        </>
+    )
+
+
+    return (
+        <>
+          
+        </>
+    )
+    
+  
 }

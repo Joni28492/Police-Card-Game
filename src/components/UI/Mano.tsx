@@ -23,7 +23,7 @@ export const Mano = () => {
        
           (openHandMenu) ?
           <MiniCard 
-                key={uid}
+                key={uuid()}
                 uid={uid}
                 id={id}
                 title={title} 
@@ -37,7 +37,11 @@ export const Mano = () => {
     }
  
     <div onClick={drawCard}>
-      <Button label={'robar'}  />
+      <Button  style={{
+        height: '45px',
+        width: '90px',
+        marginTop: '45px'
+      }} label={'robar'}  />
     </div>
     
   </div>
