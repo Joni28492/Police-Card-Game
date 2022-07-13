@@ -2,6 +2,7 @@ import { ScreensType } from '../context/UI';
 import { cards } from '../data/cards';
 import { questions } from '../data/questions';
 import { ICard, IQuestion, RestrictionsType } from '../interfaces/index';
+import { v4 as uuid } from 'uuid';
 
 
 
@@ -48,7 +49,8 @@ export const randomDeck = (existingCards:ICard[], deckSize:number ):ICard[] =>{
 
     for (let i = 0; i < deckSize; i++) {
         randomInt = getRandomInt(0, existingCards.length -1)
-        yourDeck = [...yourDeck, existingCards[randomInt] ] 
+        
+        yourDeck = [...yourDeck, {...existingCards[randomInt], uid:uuid()} ] 
     }
 
     return yourDeck;
@@ -60,7 +62,7 @@ export const randomHand = (existingCards:ICard[], handSize:number ):ICard[] =>{
 
     for (let i = 0; i < handSize; i++) {
         randomInt = getRandomInt(1, existingCards.length -1)
-        yourHand = [...yourHand, existingCards[randomInt] ] 
+        yourHand = [...yourHand,{...existingCards[randomInt], uid:uuid()} ] 
     }
 
     return yourHand;
